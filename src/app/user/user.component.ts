@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LogicService} from "../logic.service";
+import {LogicService} from "../services/logic.service";
 
 @Component({
   selector: 'app-user',
@@ -23,7 +23,5 @@ export class UserComponent implements OnInit {
     this.y = this.logicService.y;
 
     this.yTwo = this.logicService.yTwo();
-
-
   }
 }
