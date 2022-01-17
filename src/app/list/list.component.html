@@ -1,1 +1,17 @@
-<p>list works!</p>
+<p [class]="myClass">Hello</p>
+
+<div class="content">
+  <div class="list">
+    <ul *ngFor="let user of users">
+      <li>{{user}}</li>
+    </ul>
+  </div>
+  <div class="forms">
+    <form #form (ngSubmit)="submit(form)" class="form">
+      <label for="addUser">Name:</label>
+      <input type="text" name="user" id="addUser" [(ngModel)]="user" maxlength="15" required>
+      <button on-click="addMember(user)" class="button" type="submit">Добавить</button>
+      <button on-click="deleteMember(user)" class="button" type="submit">Удалить</button>
+    </form>
+  </div>
+</div>
