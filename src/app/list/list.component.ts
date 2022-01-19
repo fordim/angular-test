@@ -10,19 +10,10 @@ export class ListComponent implements OnInit {
 
   public users = ['Mark', 'Dave', 'Tramp', 'Markus'];
 
-  public myClass = 'red'
-
   public user: string = '';
 
   constructor(private logicService: LogicService) {
 
-    setTimeout(() =>{
-      this.myClass = 'green'
-
-      setTimeout(() =>{
-        this.myClass = 'blue'
-      }, 2000)
-    }, 2000)
   }
 
   ngOnInit(): void {

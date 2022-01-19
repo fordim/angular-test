@@ -7,13 +7,15 @@ import { UserComponent } from './user/user.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListComponent } from './list/list.component';
 import {FormsModule} from "@angular/forms";
+import { SandboxComponent } from './sandbox/sandbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     LayoutComponent,
-    ListComponent
+    ListComponent,
+    SandboxComponent
   ],
   imports: [
     BrowserModule,
