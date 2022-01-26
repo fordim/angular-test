@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ListComponent } from './list/list.component';
 import {FormsModule} from "@angular/forms";
 import { SandboxComponent } from './sandbox/sandbox.component';
+import { UserCardComponent } from './sandbox/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SandboxComponent } from './sandbox/sandbox.component';
     UserComponent,
     LayoutComponent,
     ListComponent,
-    SandboxComponent
+    SandboxComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

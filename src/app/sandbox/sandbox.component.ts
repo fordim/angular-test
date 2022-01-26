@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SandboxService} from "../services/sandbox.service";
-import {interval, map, Observable, observable} from "rxjs";
+import {interval, map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-sandbox',
@@ -17,9 +17,27 @@ export class SandboxComponent implements OnInit {
 
   public x:string = '';
 
+  public user:any;
+
+  public isShown:boolean = true;
+
+  public users = [
+    {name: 'Mark'},
+    {name: 'David'},
+    {name: 'Iren'},
+  ];
+
+  public names = ['Dimity', 'Max', 'Selena'];
+
+  public selectedName:any;
+
   constructor(private sandboxService: SandboxService) {
     setTimeout(() =>{
       this.myClass = 'green'
+
+      this.user = {
+        name: 'John'
+      };
 
       setTimeout(() =>{
         this.myClass = 'blue'
@@ -34,7 +52,7 @@ export class SandboxComponent implements OnInit {
   }
 
   public changeColor(color: string) {
-    if (this.myColor === 'blue') {
+    if (this.myColor === color) {
       this.myColor = 'red';
       return;
     }

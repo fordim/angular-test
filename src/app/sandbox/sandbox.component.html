@@ -1,7 +1,28 @@
-<p [class]="myClass">Hello</p>
+<p [class]="myClass">Hello, {{user?.name}}</p>
 <p (click)="changeColor('blue')" [class]="myColor" class="cross">Change Color On click</p>
 
 {{ test | async}}
 
 <p>{{x}}</p>
 
+<input type="text" #colorElement>
+<button (click)="changeColor(colorElement.value)">Change color</button>
+<button (click)="isShown = !isShown">Toggle!</button>
+
+<app-user-card *ngIf="isShown" [user]="user">
+  <section>Ng-content</section>
+</app-user-card>
+
+<h4>List of Users:</h4>
+<ul *ngFor="let user of users">
+  <li>{{user.name}}</li>
+</ul>
+
+
+<h4>List of Users(click):</h4>
+<ul>
+  <li *ngFor="let name of names">
+    <app-user-card [name]="name" (nameSelected)="selectedName = name"></app-user-card>
+  </li>
+</ul>
+<h4>Имя - {{selectedName}}</h4>
