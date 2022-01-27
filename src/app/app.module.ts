@@ -9,6 +9,9 @@ import { ListComponent } from './list/list.component';
 import {FormsModule} from "@angular/forms";
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { UserCardComponent } from './sandbox/user-card/user-card.component';
+import { ColoryDirective } from './sandbox/colory.directive';
+import { DelayDirective } from './sandbox/delay.directive';
+import { ItemComponent } from './sandbox/item/item.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,12 @@ import { UserCardComponent } from './sandbox/user-card/user-card.component';
     LayoutComponent,
     ListComponent,
     SandboxComponent,
-    UserCardComponent
+    UserCardComponent,
+    ColoryDirective,
+    DelayDirective,
+    ItemComponent
   ],
+  entryComponents: [ ItemComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

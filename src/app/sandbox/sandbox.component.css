@@ -13,3 +13,17 @@
 .cross {
   cursor: pointer;
 }
+
+.main {
+  display: flex;
+}
+
+.block {
+  margin: 10px;
+}
+
+.generate-number {
+  margin: 15px;
+  align-items: center;
+  height: 10px;
+}

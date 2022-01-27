@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@angular/core';
 import {SandboxService} from "../services/sandbox.service";
 import {interval, map, Observable} from "rxjs";
+import {ItemComponent} from "./item/item.component";
 
 @Component({
   selector: 'app-sandbox',
@@ -31,7 +32,11 @@ export class SandboxComponent implements OnInit {
 
   public selectedName:any;
 
-  constructor(private sandboxService: SandboxService) {
+  constructor(
+    private sandboxService: SandboxService,
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver : ComponentFactoryResolver
+  ) {
     setTimeout(() =>{
       this.myClass = 'green'
 
@@ -49,6 +54,11 @@ export class SandboxComponent implements OnInit {
 
   ngOnInit(): void {
     this.test = interval(1000).pipe(map(i => i));
+
+    setTimeout(() => {
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
+      const componetnRef = this.viewContainerRef.createComponent(componentFactory);
+    }, 3000)
   }
 
   public changeColor(color: string) {
