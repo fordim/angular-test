@@ -2,6 +2,7 @@ import {Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@an
 import {SandboxService} from "../services/sandbox.service";
 import {interval, map, Observable} from "rxjs";
 import {ItemComponent} from "./item/item.component";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-sandbox',
@@ -22,21 +23,24 @@ export class SandboxComponent implements OnInit {
 
   public isShown:boolean = true;
 
-  public users = [
-    {name: 'Mark'},
-    {name: 'David'},
-    {name: 'Iren'},
-  ];
+  public users:any;
 
   public names = ['Dimity', 'Max', 'Selena'];
 
   public selectedName:any;
 
+  //old type of injection service
+  private _userService:any;
+
   constructor(
     private sandboxService: SandboxService,
     private viewContainerRef: ViewContainerRef,
-    private componentFactoryResolver : ComponentFactoryResolver
+    private componentFactoryResolver : ComponentFactoryResolver,
+    private userService: UserService
   ) {
+    //old type of injection service
+    this._userService = userService;
+
     setTimeout(() =>{
       this.myClass = 'green'
 
@@ -59,6 +63,8 @@ export class SandboxComponent implements OnInit {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
       const componetnRef = this.viewContainerRef.createComponent(componentFactory);
     }, 3000)
+
+    this.users = this._userService.getAllUsers();
   }
 
   public changeColor(color: string) {
@@ -68,6 +74,20 @@ export class SandboxComponent implements OnInit {
     }
 
     this.myColor = color;
+  }
+
+  public removeUser(name: string) {
+    console.log(name);
+    this._userService.remove(name);
+    this.users = this._userService.getAllUsers();
+  }
+
+  public addUser(name: string) {
+    if (!name) {
+      return;
+    }
+
+    this._userService.add(name);
   }
 
 }

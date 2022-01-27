@@ -32,7 +32,12 @@
     <h4>List of Users:</h4>
     <ul *ngFor="let user of users">
       <li>{{user.name}}</li>
+      <p class="margin-one" (click)="removeUser(user.name)">x</p>
     </ul>
+    <div>
+      <input type="text" #htmlInputElement class="input">
+      <button (click)="addUser(htmlInputElement.value)" type="submit">Add</button>
+    </div>
   </div>
   <div class="block">
     <h4>List of Users(click):</h4>

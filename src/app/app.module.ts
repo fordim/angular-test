@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListComponent } from './list/list.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { UserCardComponent } from './sandbox/user-card/user-card.component';
 import { ColoryDirective } from './sandbox/colory.directive';
 import { DelayDirective } from './sandbox/delay.directive';
 import { ItemComponent } from './sandbox/item/item.component';
+import { UserService } from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { ItemComponent } from './sandbox/item/item.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
