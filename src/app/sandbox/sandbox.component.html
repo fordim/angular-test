@@ -1,77 +1,85 @@
-<div class="main">
+<body>
   <div>
-    <p [class]="myClass">Hello, {{user?.name}}</p>
-  </div>
-  <div class="generate-number">
-    {{ test | async}}
-  </div>
-</div>
-
-<p>{{x}}</p>
-
-<div class="main">
-  <div class="block">
-    <p (click)="changeColor('blue')" [class]="myColor" class="cross">Change Color On click</p>
-    <input type="text" #colorElement>
-    <button (click)="changeColor(colorElement.value)">Change color</button>
-  </div>
-
-  <div class="block">
-    <div>
-      <app-user-card *ngIf="isShown" [user]="user">
-        <section>Ng-content</section>
-      </app-user-card>
+    <div class="main">
+      <div>
+        <p [class]="myClass">Hello, {{user?.name}}</p>
+      </div>
+      <div class="generate-number">
+        {{ test | async}}
+      </div>
     </div>
-    <button (click)="isShown = !isShown">Toggle!</button>
-  </div>
-</div>
 
+    <p>{{x}}</p>
 
-<div class="main">
-  <div class="block">
-    <h4>List of Users:</h4>
-    <ul *ngFor="let user of users">
-      <li>{{user.name}}</li>
-      <p class="margin-one" (click)="removeUser(user.name)">x</p>
-    </ul>
-    <div>
-      <input type="text" #htmlInputElement class="input">
-      <button (click)="addUser(htmlInputElement.value)" type="submit">Add</button>
+    <div class="main">
+      <div class="block">
+        <p (click)="changeColor('blue')" [class]="myColor" class="cross">Change Color On click</p>
+        <input type="text" #colorElement>
+        <button (click)="changeColor(colorElement.value)">Change color</button>
+      </div>
+
+      <div class="block">
+        <div>
+          <app-user-card *ngIf="isShown" [user]="user">
+            <section>Ng-content</section>
+          </app-user-card>
+        </div>
+        <button (click)="isShown = !isShown">Toggle!</button>
+      </div>
     </div>
-  </div>
-  <div class="block">
-    <h4>List of Users(click):</h4>
-    <ul>
-      <li *ngFor="let name of names">
-        <app-user-card [name]="name" (nameSelected)="selectedName = name"></app-user-card>
-      </li>
-    </ul>
-    <h4>Имя - {{selectedName}}</h4>
-  </div>
-</div>
 
 
-<div class="main">
-  <div>
-    <div appColory #colory='colory' class="block">
-      Some Text Directive
+    <div class="main">
+      <div class="block">
+        <h4>List of Users:</h4>
+        <ul *ngFor="let user of users">
+          <li>{{user.name}}</li>
+          <p class="margin-one" (click)="removeUser(user.name)">x</p>
+        </ul>
+        <div>
+          <input type="text" #htmlInputElement class="input">
+          <button (click)="addUser(htmlInputElement.value)" type="submit">Add</button>
+        </div>
+      </div>
+      <div class="block">
+        <h4>List of Users(click):</h4>
+        <ul>
+          <li *ngFor="let name of names">
+            <app-user-card [name]="name" (nameSelected)="selectedName = name"></app-user-card>
+          </li>
+        </ul>
+        <h4>Имя - {{selectedName}}</h4>
+      </div>
     </div>
-    <div appColory #colory2='colory' class="block">
-      Some Text Directive
-    </div>
-  </div>
-    <button (click)="colory.setRandomColor(); colory2.setRandomColor()">Change color Directive</button>
-</div>
 
-<div class="main">
-  <div>
-    <div *ngFor="let delay of [2,3,4]">
-      <div *appDelay="delay">
-        Directive Delay
+    <div class="main">
+      <div>
+        <div appColory #colory='colory' class="block">
+          Some Text Directive
+        </div>
+        <div appColory #colory2='colory' class="block">
+          Some Text Directive
+        </div>
+      </div>
+      <button (click)="colory.setRandomColor(); colory2.setRandomColor()">Change color Directive</button>
+    </div>
+
+    <div class="main">
+      <div>
+        <div *ngFor="let delay of [2,3,4]">
+          <div *appDelay="delay">
+            Directive Delay
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="margin-thirty">
+    <app-students></app-students>
+  </div>
+</body>
+
+
 
 
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { ColoryDirective } from './sandbox/colory.directive';
 import { DelayDirective } from './sandbox/delay.directive';
 import { ItemComponent } from './sandbox/item/item.component';
 import { UserService } from "./services/user.service";
+import { StudentsComponent } from './sandbox/students/students.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { UserService } from "./services/user.service";
     UserCardComponent,
     ColoryDirective,
     DelayDirective,
-    ItemComponent
+    ItemComponent,
+    StudentsComponent
   ],
   entryComponents: [ ItemComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     UserService

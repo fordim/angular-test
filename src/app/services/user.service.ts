@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,18 @@ export class UserService {
     { name: 'Iren' },
   ];
 
-  constructor() { }
+  constructor(
+    private _http: HttpClient
+  ) {
+
+  }
 
   public getAllUsers () {
     return this.users;
+  }
+
+  public getUserOutside () {
+    return this._http.get('https://jsonplaceholder.typicode.com/users');
   }
 
   public remove(name: string) {
