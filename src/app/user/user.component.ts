@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LogicService} from "../services/logic.service";
+import { LogicService } from "../services/logic.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,11 @@ export class UserComponent implements OnInit {
 
   public yTwo = 0;
 
-  constructor(private logicService: LogicService) { }
+  constructor(private logicService: LogicService, private _http: HttpClient) {
+    _http.get('https://api.github.com/search/users').subscribe(results => {
+      console.log(results);
+    })
+  }
 
   ngOnInit(): void {
     this.logicService.test();

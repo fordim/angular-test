@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { DelayDirective } from './sandbox/delay.directive';
 import { ItemComponent } from './sandbox/item/item.component';
 import { UserService } from "./services/user.service";
 import { StudentsComponent } from './sandbox/students/students.component';
+import { MyInterceptor } from "./services/myinterceptor.service";
+
+const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ import { StudentsComponent } from './sandbox/students/students.component';
     HttpClientModule
   ],
   providers: [
-    UserService
+    // Идентичные записи
+    // { provide: UserService, useClass: UserService},
+    UserService,
+    { provide: API_BASE_URL, useValue: 'api.mysite.com' },
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
