@@ -16,6 +16,7 @@ import { ItemComponent } from './sandbox/item/item.component';
 import { UserService } from "./services/user.service";
 import { StudentsComponent } from './sandbox/students/students.component';
 import { MyInterceptor } from "./services/myinterceptor.service";
+import { HomeComponent } from './home/home.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -30,7 +31,8 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     ColoryDirective,
     DelayDirective,
     ItemComponent,
-    StudentsComponent
+    StudentsComponent,
+    HomeComponent
   ],
   entryComponents: [ ItemComponent ],
   imports: [

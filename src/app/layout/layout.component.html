@@ -1,6 +1,6 @@
 <header>
-  <a href="/" class="button">Main page</a>
-  <a on-click="action($event)" href="/user" class="button">User</a>
-  <a href="/list" class="button">List</a>
-  <a href="/sandbox" class="button">Sandbox</a>
+  <a routerLink="" class="button" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Main page</a>
+  <a on-click="action($event)" routerLink="user" class="button" routerLinkActive="active">User</a>
+  <a routerLink="list" class="button" routerLinkActive="active">List</a>
+  <a routerLink="sandbox" class="button" routerLinkActive="active">Sandbox</a>
 </header>
