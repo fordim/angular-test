@@ -3,4 +3,7 @@
   <a on-click="action($event)" routerLink="user" class="button" routerLinkActive="active">User</a>
   <a routerLink="list" class="button" routerLinkActive="active">List</a>
   <a routerLink="sandbox" class="button" routerLinkActive="active">Sandbox</a>
+  <a routerLink="players" class="button" routerLinkActive="active">Players</a>
+  <a routerLink="players" [queryParams]="{q: 111}" class="button" routerLinkActive="active">Players with query</a>
+  <a [routerLink]="['player', playerId]" class="button" routerLinkActive="active">Player {{playerId}}</a>
 </header>

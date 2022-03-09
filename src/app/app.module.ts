@@ -17,6 +17,8 @@ import { UserService } from "./services/user.service";
 import { StudentsComponent } from './sandbox/students/students.component';
 import { MyInterceptor } from "./services/myinterceptor.service";
 import { HomeComponent } from './home/home.component';
+import { PlayersComponent } from './players/players.component';
+import { PlayerComponent } from './player/player.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -32,7 +34,9 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     DelayDirective,
     ItemComponent,
     StudentsComponent,
-    HomeComponent
+    HomeComponent,
+    PlayersComponent,
+    PlayerComponent,
   ],
   entryComponents: [ ItemComponent ],
   imports: [

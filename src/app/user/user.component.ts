@@ -15,7 +15,10 @@ export class UserComponent implements OnInit {
 
   public yTwo = 0;
 
-  constructor(private logicService: LogicService, private _http: HttpClient) {
+  constructor(
+    private logicService: LogicService,
+    private _http: HttpClient
+  ) {
     _http.get('https://api.github.com/search/users').subscribe(results => {
       console.log(results);
     })
