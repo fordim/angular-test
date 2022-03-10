@@ -11,6 +11,7 @@ import { SettingsComponent } from "./settings/settings.component";
 import { AuthGuard } from "./auth.guard";
 import { PlayerResolveService } from "./services/player-resolve.service";
 import { LoginComponent } from "./login/login.component";
+import {FormComponent} from "./form/form.component";
 
 /*
 Guard types (implement)
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, outlet: "popup" },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   { path: 'user', component: UserComponent},
+  { path: 'form', component: FormComponent},
   { path: 'list', component: ListComponent},
   { path: 'sandbox', component: SandboxComponent},
   { path: 'players',

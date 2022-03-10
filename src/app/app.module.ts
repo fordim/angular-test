@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListComponent } from './list/list.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { UserCardComponent } from './sandbox/user-card/user-card.component';
 import { ColoryDirective } from './sandbox/colory.directive';
@@ -22,8 +22,9 @@ import { PlayerComponent } from './player/player.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from "./auth.guard";
-import {PlayerResolveService} from "./services/player-resolve.service";
+import { PlayerResolveService } from "./services/player-resolve.service";
 import { LoginComponent } from './login/login.component';
+import { FormComponent } from './form/form.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -45,12 +46,14 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     ProfileComponent,
     SettingsComponent,
     LoginComponent,
+    FormComponent,
   ],
   entryComponents: [ ItemComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
