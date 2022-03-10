@@ -8,8 +8,13 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class PlayerComponent implements OnInit {
 
+  private params:any;
+  public playedId:number;
+
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params => console.log(params))
+    this.route.params.subscribe((params: any) => this.params = params)
+    this.playedId = this.params.playerId
   }
 
   ngOnInit(): void {

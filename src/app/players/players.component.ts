@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-players',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class PlayersComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private _router: Router) {
     this.route.queryParams.subscribe(params => console.log(params))
     this.route.data.subscribe(data => console.log(data))
   }
@@ -16,4 +16,9 @@ export class PlayersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToPlayer(playerId:number) {
+    this._router.navigate(['player', playerId]);
+    //Same method
+    // this._router.navigateByUrl('player/' + playerId, {skipLocationChange : true});
+  }
 }

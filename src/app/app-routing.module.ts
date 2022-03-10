@@ -6,6 +6,8 @@ import { SandboxComponent } from "./sandbox/sandbox.component";
 import { HomeComponent } from "./home/home.component";
 import { PlayersComponent } from "./players/players.component";
 import { PlayerComponent } from "./player/player.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +21,10 @@ const routes: Routes = [
     },
     component: PlayersComponent
   },
-  { path: 'player/:playerId', component: PlayerComponent},
+  { path: 'player/:playerId', component: PlayerComponent, children: [
+    { path: 'profile', component: ProfileComponent },
+    { path: 'settings', component: SettingsComponent },
+    ]},
 ];
 
 @NgModule({

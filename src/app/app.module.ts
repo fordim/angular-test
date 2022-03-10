@@ -19,6 +19,8 @@ import { MyInterceptor } from "./services/myinterceptor.service";
 import { HomeComponent } from './home/home.component';
 import { PlayersComponent } from './players/players.component';
 import { PlayerComponent } from './player/player.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -37,6 +39,8 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     HomeComponent,
     PlayersComponent,
     PlayerComponent,
+    ProfileComponent,
+    SettingsComponent,
   ],
   entryComponents: [ ItemComponent ],
   imports: [
