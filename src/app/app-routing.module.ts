@@ -24,6 +24,7 @@ Guard types (implement)
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, outlet: "popup" },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   { path: 'user', component: UserComponent},
   { path: 'list', component: ListComponent},
   { path: 'sandbox', component: SandboxComponent},
