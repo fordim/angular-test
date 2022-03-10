@@ -8,6 +8,17 @@ import { PlayersComponent } from "./players/players.component";
 import { PlayerComponent } from "./player/player.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { AuthGuard } from "./auth.guard";
+import {PlayerResolveService} from "./services/player-resolve.service";
+
+/*
+Guard types (implement)
+- CanActivate/CanActivateChild
+- CanDeactivate
+- CanLoad
+
+- Resolve
+ */
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +26,10 @@ const routes: Routes = [
   { path: 'list', component: ListComponent},
   { path: 'sandbox', component: SandboxComponent},
   { path: 'players',
+    canActivate: [ AuthGuard ],
+    resolve: {
+      player: PlayerResolveService
+    },
     data: {
       title: 'Players',
       anotherParam: 'Something Else'

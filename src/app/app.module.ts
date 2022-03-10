@@ -21,6 +21,8 @@ import { PlayersComponent } from './players/players.component';
 import { PlayerComponent } from './player/player.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthGuard } from "./auth.guard";
+import {PlayerResolveService} from "./services/player-resolve.service";
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -54,7 +56,9 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     // { provide: UserService, useClass: UserService},
     UserService,
     { provide: API_BASE_URL, useValue: 'api.mysite.com' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
+    AuthGuard,
+    PlayerResolveService
   ],
   bootstrap: [AppComponent]
 })

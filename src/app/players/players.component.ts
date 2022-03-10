@@ -8,9 +8,13 @@ import { ActivatedRoute, Router, Event, NavigationStart } from "@angular/router"
 })
 export class PlayersComponent implements OnInit {
 
+  public playerName: any;
+
   constructor(private route: ActivatedRoute, private _router: Router) {
     this.route.queryParams.subscribe(params => console.log(params))
     this.route.data.subscribe(data => console.log(data))
+
+    this.route.data.subscribe((data:any) => this.playerName = data.player.name)
 
     this._router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
