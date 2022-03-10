@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { UserComponent } from "./user/user.component";
 import { ListComponent } from "./list/list.component";
 import { SandboxComponent } from "./sandbox/sandbox.component";
@@ -9,12 +9,12 @@ import { PlayerComponent } from "./player/player.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { AuthGuard } from "./auth.guard";
-import {PlayerResolveService} from "./services/player-resolve.service";
-import {LoginComponent} from "./login/login.component";
+import { PlayerResolveService } from "./services/player-resolve.service";
+import { LoginComponent } from "./login/login.component";
 
 /*
 Guard types (implement)
-- CanActivate/CanActivateChild
+- CanActivate/CanActivat eChild
 - CanDeactivate
 - CanLoad
 
@@ -46,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
