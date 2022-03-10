@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from "./auth.guard";
 import {PlayerResolveService} from "./services/player-resolve.service";
+import { LoginComponent } from './login/login.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -43,6 +44,7 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     PlayerComponent,
     ProfileComponent,
     SettingsComponent,
+    LoginComponent,
   ],
   entryComponents: [ ItemComponent ],
   imports: [

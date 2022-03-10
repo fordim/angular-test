@@ -10,6 +10,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { AuthGuard } from "./auth.guard";
 import {PlayerResolveService} from "./services/player-resolve.service";
+import {LoginComponent} from "./login/login.component";
 
 /*
 Guard types (implement)
@@ -22,6 +23,7 @@ Guard types (implement)
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent, outlet: "popup" },
   { path: 'user', component: UserComponent},
   { path: 'list', component: ListComponent},
   { path: 'sandbox', component: SandboxComponent},
