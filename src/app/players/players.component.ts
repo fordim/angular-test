@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router, Event, NavigationStart } from "@angular/router";
 
 @Component({
   selector: 'app-players',
@@ -11,6 +11,12 @@ export class PlayersComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _router: Router) {
     this.route.queryParams.subscribe(params => console.log(params))
     this.route.data.subscribe(data => console.log(data))
+
+    this._router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        console.log(event);
+      }
+    })
   }
 
   ngOnInit(): void {
