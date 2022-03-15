@@ -22,4 +22,8 @@ export class StudentsComponent implements OnInit {
     this._userService.getUserOutside().subscribe((students: any) => this.students = students);
   }
 
+  someMethod(): void {
+    this._userService.getUserOutside().subscribe((users: any) => this.students = users);
+  }
+
 }
