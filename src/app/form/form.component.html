@@ -1,1 +1,18 @@
 <input [formControl]="nameControl">
+
+<fieldset [formGroup]="fullNameControl">
+  <input formControlName="firstName">
+  <input formControlName="lastName">
+</fieldset>
+
+
+<fieldset [formGroup]="userListControl">
+  <ul formArrayName="users">
+    <li *ngFor="let userControl of userList.controls; let i = index" >
+      <input formControlName="{{i}}">
+      <button (click)="removeUserControl(i)">Remove</button>
+    </li>
+  </ul>
+</fieldset>
+<button (click)="addUserControl()">Add user</button>
+
