@@ -25,6 +25,7 @@ import { AuthGuard } from "./auth.guard";
 import { PlayerResolveService } from "./services/player-resolve.service";
 import { LoginComponent } from './login/login.component';
 import { FormComponent } from './form/form.component';
+import {HttpTestingController} from "@angular/common/http/testing";
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -54,7 +55,7 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     // Идентичные записи
