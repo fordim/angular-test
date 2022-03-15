@@ -25,6 +25,7 @@ import { AuthGuard } from "./auth.guard";
 import { PlayerResolveService } from "./services/player-resolve.service";
 import { LoginComponent } from './login/login.component';
 import { FormComponent } from './form/form.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -47,6 +48,7 @@ const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     SettingsComponent,
     LoginComponent,
     FormComponent,
+    RxjsComponent,
   ],
   entryComponents: [ ItemComponent ],
   imports: [
