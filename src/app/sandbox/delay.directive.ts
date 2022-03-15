@@ -1,4 +1,13 @@
-import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 @Directive({
   selector: '[appDelay]'
@@ -6,6 +15,14 @@ import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/
 export class DelayDirective implements OnInit {
 
   @Input() appDelay:any;
+
+  @Output() changes = new EventEmitter<number>();
+  private _counter = 0;
+
+  @HostListener('click') onClick() {
+    this._counter++;
+    this.changes.emit(this._counter);
+  }
 
   constructor(
     private template: TemplateRef<any>,
